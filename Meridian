@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Meridian Interiors – Interior design for homes and offices</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#f4f7f6;--surface:#fff;--ink:#14212b;--muted:#516069;--line:#d3dcda;--brand:#2b6b66;--brand-ink:#fff;--accent:#e0b64f;--err:#b3261e;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1a1f;--surface:#17262d;--ink:#eaf1ef;--muted:#9db0ac;--line:#2a3d44;--brand:#6fc0b8;--brand-ink:#0f1a1f;--accent:#e0b64f;--err:#ff8a80}}
+:root[data-theme="dark"]{--bg:#0f1a1f;--surface:#17262d;--ink:#eaf1ef;--muted:#9db0ac;--line:#2a3d44;--brand:#6fc0b8;--brand-ink:#0f1a1f;--accent:#e0b64f;--err:#ff8a80}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 "Instrument Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","Instrument Sans",system-ui,sans-serif;line-height:1.1;margin:0;letter-spacing:-.02em}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+.logo{font:800 1.2rem "Bricolage Grotesque",sans-serif;text-decoration:none}
+.logo span{color:var(--brand)}
+nav{display:flex;gap:20px;align-items:center;font-size:.95rem}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover,nav a:focus-visible{color:var(--ink)}
+@media(max-width:640px){nav a.hide{display:none}}
+.btn{display:inline-block;background:var(--brand);color:var(--brand-ink);border:0;border-radius:8px;padding:12px 22px;font:600 1rem "Instrument Sans",sans-serif;cursor:pointer;text-decoration:none}
+.btn:hover{filter:brightness(1.08)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;padding:64px 0 72px;align-items:start}
+@media(max-width:820px){.hero{grid-template-columns:1fr;gap:32px;padding:40px 0}}
+.hero h1{font-size:clamp(2.4rem,6vw,4rem);font-weight:800}
+.hero p.lead{font-size:1.2rem;color:var(--muted);max-width:34em;margin:20px 0 24px}
+.stats{display:flex;gap:28px;flex-wrap:wrap;margin:0;padding:0;list-style:none;color:var(--muted);font-size:.95rem}
+.stats b{display:block;color:var(--ink);font:700 1.5rem "Bricolage Grotesque",sans-serif}
+form{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:26px;border-top:5px solid var(--accent)}
+form h2{font-size:1.5rem;margin-bottom:4px}
+form .sub{margin:0 0 18px;color:var(--muted);font-size:.95rem}
+label{display:block;font-weight:600;font-size:.92rem;margin:14px 0 5px}
+input,select,textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+textarea{min-height:90px;resize:vertical}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:480px){.row{grid-template-columns:1fr}}
+.err{color:var(--err);font-size:.85rem;min-height:1.1em;margin:3px 0 0}
+input[aria-invalid="true"],select[aria-invalid="true"]{border-color:var(--err)}
+form .btn{width:100%;margin-top:18px}
+.ok{display:none;background:var(--surface);border:1px solid var(--brand);border-radius:14px;padding:26px}
+.ok.show{display:block}
+section{padding:64px 0;border-top:1px solid var(--line)}
+section h2{font-size:clamp(1.8rem,4vw,2.5rem);margin-bottom:12px}
+section>.wrap>p.intro{color:var(--muted);max-width:36em;margin:0 0 36px}
+.svc{display:grid;grid-template-columns:200px 1fr auto;gap:8px 28px;padding:20px 0;border-top:1px solid var(--line);align-items:baseline}
+.svc:last-child{border-bottom:1px solid var(--line)}
+.svc h3{font-size:1.3rem}
+.svc p{margin:0;color:var(--muted)}
+.svc .price{font-weight:600;white-space:nowrap}
+@media(max-width:700px){.svc{grid-template-columns:1fr}}
+ol.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin:0;padding:0;list-style:none;counter-reset:s}
+@media(max-width:760px){ol.steps{grid-template-columns:1fr}}
+ol.steps li{counter-increment:s;padding-top:14px;border-top:4px solid var(--brand)}
+ol.steps li::before{content:"Step " counter(s);font-weight:600;color:var(--brand);font-size:.9rem}
+ol.steps h3{font-size:1.25rem;margin:4px 0 6px}
+ol.steps p{margin:0;color:var(--muted)}
+blockquote{margin:0;max-width:40em;font:500 clamp(1.3rem,3vw,1.8rem)/1.3 "Bricolage Grotesque",sans-serif}
+cite{display:block;margin-top:14px;font:400 .95rem "Instrument Sans",sans-serif;color:var(--muted)}
+details{border-top:1px solid var(--line);padding:16px 0}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:600;font-size:1.05rem}
+details p{margin:10px 0 0;color:var(--muted);max-width:42em}
+footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-size:.95rem}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+/* Polished, editorial finish */
+:root{--bg:#f5f2eb;--surface:#fffdf8;--ink:#20302d;--muted:#65736e;--line:#d9ddd5;--brand:#386c5a;--brand-ink:#fff;--accent:#d9a747}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101a18;--surface:#1a2925;--ink:#edf2ed;--muted:#a8b8af;--line:#31423d;--brand:#85b9a0;--brand-ink:#12201b;--accent:#e5bb69}}
+:root[data-theme="dark"]{--bg:#101a18;--surface:#1a2925;--ink:#edf2ed;--muted:#a8b8af;--line:#31423d;--brand:#85b9a0;--brand-ink:#12201b;--accent:#e5bb69}
+body{background-image:radial-gradient(ellipse at 8% 9%,rgba(217,167,71,.10),transparent 30%),radial-gradient(ellipse at 95% 28%,rgba(56,108,90,.08),transparent 28%)}
+header{backdrop-filter:blur(16px);background:color-mix(in srgb,var(--bg) 88%,transparent)}
+.logo{font-size:1.35rem;letter-spacing:-.04em}
+.btn{box-shadow:0 8px 18px rgba(35,70,57,.15);transition:transform .2s ease,box-shadow .2s ease,filter .2s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(35,70,57,.2)}
+.hero{padding-top:76px;padding-bottom:82px;align-items:center}
+.hero>div:first-child{position:relative;padding:34px 30px 30px 0}
+.hero>div:first-child:before{content:"";position:absolute;z-index:-1;width:270px;height:270px;right:2%;top:8%;border-radius:50%;background:radial-gradient(circle at 35% 35%,rgba(217,167,71,.23),rgba(56,108,90,.09) 58%,transparent 70%)}
+.eyebrow{margin:0 0 14px;color:var(--brand);font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.hero h1{max-width:10ch;font-size:clamp(3rem,7vw,5.25rem);letter-spacing:-.055em}
+.hero p.lead{font-size:1.16rem;line-height:1.7;max-width:31em}
+.stats{gap:12px}
+.stats li{padding:10px 15px;background:var(--surface);border:1px solid var(--line);border-radius:12px;font-size:.85rem}
+.stats b{font-size:1.35rem}
+form,.ok{box-shadow:0 22px 55px rgba(34,52,44,.09);border-radius:18px;padding:30px}
+form{border-top-width:6px}
+input,select,textarea{transition:border-color .2s ease,box-shadow .2s ease}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--brand);box-shadow:0 0 0 3px color-mix(in srgb,var(--brand) 18%,transparent)}
+section{padding:76px 0}
+section h2{letter-spacing:-.04em}
+.svc{grid-template-columns:minmax(145px,.7fr) 1.5fr auto;gap:10px 24px;padding:23px 24px;margin:12px 0;background:var(--surface);border:1px solid var(--line);border-radius:14px;transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}
+.svc:last-child{border-bottom:1px solid var(--line)}
+.svc:hover{transform:translateY(-3px);border-color:var(--brand);box-shadow:0 12px 28px rgba(34,52,44,.08)}
+.svc .price{color:var(--brand)}
+ol.steps li{padding:18px 18px 20px;background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--brand);border-radius:4px 4px 14px 14px}
+blockquote{max-width:unset;padding:38px 42px;border-radius:18px;background:var(--surface);border-left:5px solid var(--accent);box-shadow:0 15px 38px rgba(34,52,44,.06)}
+summary{transition:color .2s ease}summary:hover{color:var(--brand)}
+.theme-toggle{background:transparent;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:8px 12px;font:600 .9rem "Instrument Sans",sans-serif;cursor:pointer}
+.theme-toggle:hover{border-color:var(--brand);color:var(--brand)}
+@media(max-width:700px){.svc{grid-template-columns:1fr;gap:6px}.svc .price{white-space:normal}.hero>div:first-child{padding-right:0}.hero{padding-top:48px}}
+.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.gallery-card{overflow:hidden;background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:0 12px 30px rgba(34,52,44,.07);transition:transform .2s ease,box-shadow .2s ease}
+.gallery-card:hover{transform:translateY(-5px);box-shadow:0 18px 38px rgba(34,52,44,.13)}
+.gallery-card svg{display:block;width:100%;height:auto;aspect-ratio:4/3}
+.gallery-card figcaption{padding:16px 18px 18px}
+.gallery-card h3{font-size:1.2rem;margin-bottom:5px}
+.gallery-card p{margin:0;color:var(--muted);font-size:.95rem}
+@media(max-width:760px){.gallery{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.gallery{grid-template-columns:1fr}}
+@media(max-width:480px){form,.ok{padding:22px}.stats{gap:8px}.stats li{padding:8px 10px}blockquote{padding:26px 24px}nav{gap:10px}.theme-toggle{padding:8px 10px}}
+@media(prefers-reduced-motion:reduce){.btn,.svc,input,select,textarea{transition:none}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<a class="logo" href="#top">Meridian<span>.</span></a>
+<nav aria-label="Main"><a class="hide" href="#services">Services</a><a class="hide" href="#process">Process</a><a class="hide" href="#faq">FAQ</a><button class="theme-toggle" id="themeToggle" type="button" aria-pressed="false" aria-label="Switch color theme">◐ Theme</button><a class="btn" href="#quote">Get a quote</a></nav>
+</div></header>
+
+<main id="top">
+<div class="wrap hero">
+<div>
+<p class="eyebrow">Thoughtful interiors, made personal</p>
+<h1>Rooms that work as hard as you do.</h1>
+<p class="lead">Meridian Interiors designs and fits out homes and small offices, from the first sketch to the last cushion. Tell us about your space and get a clear quote within two working days.</p>
+<ul class="stats"><li><b>240+</b>projects finished</li><li><b>12 years</b>in business</li><li><b>4.9/5</b>client rating</li></ul>
+</div>
+<div>
+<form id="quote" novalidate>
+<h2>Request a free quote</h2>
+<p class="sub">We reply within two working days.</p>
+<label for="name">Full name</label>
+<input id="name" name="name" autocomplete="name" required>
+<p class="err" data-for="name"></p>
+<div class="row">
+<div><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required><p class="err" data-for="email"></p></div>
+<div><label for="phone">Phone (optional)</label><input id="phone" name="phone" type="tel" autocomplete="tel"></div>
+</div>
+<label for="type">Project type</label>
+<select id="type" name="type" required>
+<option value="">Choose one</option><option>Full home design</option><option>Single room makeover</option><option>Office fit-out</option><option>Design consultation only</option>
+</select>
+<p class="err" data-for="type"></p>
+<label for="budget">Approximate budget</label>
+<select id="budget" name="budget"><option>Not sure yet</option><option>Under 2 lakh</option><option>2–5 lakh</option><option>5–15 lakh</option><option>15 lakh and above</option></select>
+<label for="msg">About your space</label>
+<textarea id="msg" name="msg" placeholder="Size, style you like, timeline…"></textarea>
+<button class="btn" type="submit">Send request</button>
+</form>
+<div class="ok" id="ok" role="status" tabindex="-1"><h2>Request sent</h2><p id="okmsg"></p><button class="btn" type="button" id="again">Send another request</button></div>
+</div>
+</div>
+
+<section id="services"><div class="wrap">
+<h2>What we do</h2>
+<p class="intro">Fixed-scope packages, so you know the cost before work starts.</p>
+<div class="svc"><h3>Design consultation</h3><p>A two-hour visit, measured notes and a mood board with a rough budget.</p><span class="price">From 8,000</span></div>
+<div class="svc"><h3>Room makeover</h3><p>Layout, furniture, lighting and styling for one room, managed end to end.</p><span class="price">From 1.5 lakh</span></div>
+<div class="svc"><h3>Full home design</h3><p>Every room, one consistent plan, with a single point of contact on site.</p><span class="price">From 6 lakh</span></div>
+<div class="svc"><h3>Office fit-out</h3><p>Workstations, meeting rooms and storage for teams of 5 to 40.</p><span class="price">From 8 lakh</span></div>
+</div></section>
+
+<section id="designs"><div class="wrap">
+<h2>A few spaces we love</h2>
+<p class="intro">Warm materials, thoughtful details and room to live and work well.</p>
+<div class="gallery">
+<figure class="gallery-card">
+<svg viewBox="0 0 480 360" role="img" aria-labelledby="living-title" xmlns="http://www.w3.org/2000/svg">
+<title id="living-title">Sunlit living room with a sofa and leafy plants</title>
+<defs><linearGradient id="living-wall" x2="0" y2="1"><stop stop-color="#eee4d1"/><stop offset="1" stop-color="#d8c9ac"/></linearGradient></defs>
+<rect width="480" height="360" fill="url(#living-wall)"/><rect y="258" width="480" height="102" fill="#9d7655"/><rect x="42" y="40" width="134" height="144" rx="4" fill="#f6f0e4"/><rect x="51" y="49" width="116" height="126" fill="#aec7c1"/><path d="M109 49v126M51 112h116" stroke="#f6f0e4" stroke-width="8"/><path d="M35 184h148" stroke="#386c5a" stroke-width="10" stroke-linecap="round"/><rect x="210" y="148" width="222" height="104" rx="22" fill="#527565"/><rect x="226" y="128" width="88" height="72" rx="20" fill="#6f8d7c"/><rect x="326" y="128" width="88" height="72" rx="20" fill="#6f8d7c"/><rect x="228" y="238" width="12" height="37" fill="#644a36"/><rect x="403" y="238" width="12" height="37" fill="#644a36"/><rect x="281" y="238" width="72" height="11" rx="5" fill="#e2b863"/><path d="M317 238v-52" stroke="#644a36" stroke-width="5"/><circle cx="317" cy="174" r="17" fill="#e2b863"/><rect x="183" y="276" width="248" height="12" rx="6" fill="#d6bd91"/><rect x="195" y="288" width="12" height="35" fill="#644a36"/><rect x="407" y="288" width="12" height="35" fill="#644a36"/><path d="M80 258c6-52 3-83 28-111M110 258c-4-37 17-62 39-78M89 220c-23-13-30-30-31-48 22 8 34 23 31 48zm25-39c1-24 13-42 33-52 2 22-8 40-33 52z" fill="#386c5a"/><rect x="69" y="247" width="54" height="29" rx="5" fill="#b87854"/><ellipse cx="334" cy="331" rx="132" ry="10" fill="#775a42" opacity=".22"/>
+</svg>
+<figcaption><h3>Sunlit living room</h3><p>Natural textures and a calm, comfortable palette.</p></figcaption>
+</figure>
+<figure class="gallery-card">
+<svg viewBox="0 0 480 360" role="img" aria-labelledby="bedroom-title" xmlns="http://www.w3.org/2000/svg">
+<title id="bedroom-title">Quiet bedroom in soft blue and warm wood tones</title>
+<defs><linearGradient id="bedroom-wall" x2="0" y2="1"><stop stop-color="#e7e9dc"/><stop offset="1" stop-color="#d4d3bf"/></linearGradient></defs>
+<rect width="480" height="360" fill="url(#bedroom-wall)"/><rect y="267" width="480" height="93" fill="#997653"/><rect x="32" y="38" width="118" height="148" rx="4" fill="#f4f0e7"/><rect x="40" y="46" width="102" height="132" fill="#b9c9c1"/><path d="M91 46v132M40 112h102" stroke="#f4f0e7" stroke-width="7"/><rect x="165" y="88" width="264" height="18" rx="8" fill="#8b694b"/><path d="M180 106h236v17H180z" fill="#f0e7d7"/><rect x="146" y="195" width="281" height="88" rx="8" fill="#f5f0e6"/><rect x="164" y="177" width="107" height="61" rx="17" fill="#718a89"/><rect x="283" y="177" width="107" height="61" rx="17" fill="#718a89"/><path d="M150 230h278v53H150z" fill="#ba8063"/><path d="M150 273h278v23H150z" fill="#f0e7d7"/><rect x="159" y="290" width="12" height="35" fill="#654b37"/><rect x="405" y="290" width="12" height="35" fill="#654b37"/><rect x="61" y="218" width="66" height="48" rx="5" fill="#7b8f79"/><path d="M77 217c-2-44 13-65 36-83M99 217c-1-28-18-44-33-52" fill="none" stroke="#386c5a" stroke-width="6"/><path d="M113 142c20-12 28-29 26-46-19 7-29 22-26 46zM77 182c-17-11-24-25-22-40 17 7 25 19 22 40z" fill="#63866d"/><rect x="72" y="195" width="43" height="27" rx="4" fill="#d7b36c"/><ellipse cx="286" cy="331" rx="147" ry="10" fill="#775a42" opacity=".22"/>
+</svg>
+<figcaption><h3>A restful retreat</h3><p>Soft color, layered bedding and a touch of greenery.</p></figcaption>
+</figure>
+<figure class="gallery-card">
+<svg viewBox="0 0 480 360" role="img" aria-labelledby="office-title" xmlns="http://www.w3.org/2000/svg">
+<title id="office-title">Modern office with workstations and pendant lights</title>
+<defs><linearGradient id="office-wall" x2="0" y2="1"><stop stop-color="#e6e9df"/><stop offset="1" stop-color="#cbd5c9"/></linearGradient></defs>
+<rect width="480" height="360" fill="url(#office-wall)"/><rect y="264" width="480" height="96" fill="#8b765c"/><rect x="35" y="39" width="151" height="142" rx="4" fill="#f3f0e5"/><rect x="44" y="48" width="133" height="124" fill="#a9c2bb"/><path d="M110 48v124M44 110h133" stroke="#f3f0e5" stroke-width="8"/><path d="M214 0v54m81-54v54m82-54v54" stroke="#53645a" stroke-width="4"/><path d="M194 54h40l-7 20h-26zm61 0h40l-7 20h-26zm62 0h40l-7 20h-26z" fill="#e2b863"/><rect x="204" y="180" width="236" height="14" rx="5" fill="#795a3d"/><rect x="214" y="194" width="9" height="68" fill="#604a38"/><rect x="420" y="194" width="9" height="68" fill="#604a38"/><rect x="231" y="128" width="76" height="49" rx="4" fill="#384b4b"/><rect x="238" y="135" width="62" height="36" fill="#89a9a0"/><path d="M270 177v8m-18 0h36" stroke="#384b4b" stroke-width="4"/><rect x="335" y="128" width="76" height="49" rx="4" fill="#384b4b"/><rect x="342" y="135" width="62" height="36" fill="#89a9a0"/><path d="M373 177v8m-18 0h36" stroke="#384b4b" stroke-width="4"/><rect x="256" y="210" width="37" height="30" rx="7" fill="#6f8c7a"/><rect x="360" y="210" width="37" height="30" rx="7" fill="#6f8c7a"/><path d="M85 260c4-44 5-66 28-90m-14 67c-22-9-31-25-30-41m40 17c20-11 27-27 23-43" fill="none" stroke="#386c5a" stroke-width="6"/><path d="M68 232c-1-17 7-28 19-34 5 14 0 26-19 34zm36-32c12-14 25-16 37-12-7 13-19 18-37 12z" fill="#678c70"/><rect x="68" y="252" width="53" height="22" rx="4" fill="#b87854"/><ellipse cx="318" cy="328" rx="144" ry="10" fill="#594632" opacity=".2"/>
+</svg>
+<figcaption><h3>Bright team workspace</h3><p>Clean workstations designed for focus and collaboration.</p></figcaption>
+</figure>
+</div>
+</div></section>
+
+<section id="process"><div class="wrap">
+<h2>How a project runs</h2>
+<p class="intro">Three stages, each with a sign-off before the next begins.</p>
+<ol class="steps">
+<li><h3>Visit and brief</h3><p>We measure the space, listen to how you use it and agree a budget.</p></li>
+<li><h3>Design and approve</h3><p>You review layouts, materials and a fixed quote. Nothing starts until you say yes.</p></li>
+<li><h3>Build and hand over</h3><p>Our team fits everything out and walks you through the finished space.</p></li>
+</ol>
+</div></section>
+
+<section><div class="wrap">
+<blockquote>“They finished our office a week early and under the quote. The team now actually likes coming in.”<cite>Anita R., founder of a design-tech studio</cite></blockquote>
+</div></section>
+
+<section id="faq"><div class="wrap">
+<h2>Common questions</h2>
+<p class="intro"></p>
+<details><summary>How long does a room makeover take?</summary><p>Most single rooms take four to six weeks from approved design to handover.</p></details>
+<details><summary>Can I use my existing furniture?</summary><p>Yes. We plan around pieces you want to keep and only suggest replacing what doesn’t fit.</p></details>
+<details><summary>What if the final cost goes up?</summary><p>The quote you approve is fixed. Changes you request later are priced and agreed in writing first.</p></details>
+<details><summary>Do you work outside the city?</summary><p>We take projects within a 150 km radius. Mention your location in the form and we’ll confirm.</p></details>
+</div></section>
+</main>
+
+<footer><div class="wrap"><span>© 2026 Meridian Interiors</span><span>hello@meridian-interiors.example</span><span>Created by Satyam Mishra</span></div></footer>
+
+<script>
+(function(){
+var f=document.getElementById('quote'),ok=document.getElementById('ok');
+function setErr(id,m){var e=f.querySelector('[data-for="'+id+'"]'),i=document.getElementById(id);if(e)e.textContent=m;if(i)i.setAttribute('aria-invalid',m?'true':'false')}
+f.addEventListener('submit',function(ev){
+ev.preventDefault();
+var n=f.name.value.trim(),em=f.email.value.trim(),t=f.type.value,bad=0;
+setErr('name',n?'':'Enter your name.');if(!n)bad=1;
+var okEm=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em);
+setErr('email',okEm?'':'Enter a valid email, like name@example.com.');if(!okEm)bad=1;
+setErr('type',t?'':'Choose a project type.');if(!t)bad=1;
+if(bad){var first=f.querySelector('[aria-invalid="true"]');if(first)first.focus();return}
+document.getElementById('okmsg').textContent='Thanks, '+n.split(' ')[0]+'. We’ll email you at '+em+' within two working days.';
+f.style.display='none';ok.classList.add('show');ok.focus();
+});
+document.getElementById('again').addEventListener('click',function(){f.reset();f.style.display='';ok.classList.remove('show');f.name.focus()});
+var themeButton=document.getElementById('themeToggle');
+themeButton.addEventListener('click',function(){
+var current=document.documentElement.dataset.theme;
+var systemDark=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;
+var next=current==='dark'?'light':current==='light'?'dark':systemDark?'light':'dark';
+document.documentElement.dataset.theme=next;
+themeButton.setAttribute('aria-pressed',next==='dark'?'true':'false');
+themeButton.textContent=next==='dark'?'☀ Light':'☾ Dark';
+themeButton.setAttribute('aria-label','Switch to '+(next==='dark'?'light':'dark')+' theme');
+});
+})();
+</script>
+</body>
+</html>
